@@ -1,0 +1,15 @@
+@import "../../assets/global-styles/global-styles";
+
+#stats {
+    text-align: center;
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        margin: 0 1rem;
+        display: inline-block;
+        font-size: 1.25rem;
+    }
+}

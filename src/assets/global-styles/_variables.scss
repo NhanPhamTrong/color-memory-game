@@ -1,0 +1,20 @@
+// Breakpoints
+// 600px and DOWN: phones
+// 600px and UP: portrait tablets and large phones
+// 768px and up: landscape tablets
+// 992px and up: laptops/desktops
+// 1200px and up: large laptops and desktops
+
+// Colors
+$gradient-title: linear-gradient(to right, rgb(88, 0, 255), rgb(0, 150, 255), rgb(0, 215, 255));
+$gradient-title-reverse: linear-gradient(to right, rgb(0, 215, 255), rgb(0, 150, 255), rgb(88, 0, 255));
+$title-border: rgb(0, 215, 255);
+
+$primary: rgb(34, 47, 185);
+$on-primary: rgb(255, 255, 255);
+
+$background: rgb(230, 230, 230);
+$on-background: rgb(0, 0, 0);
+
+$surface: rgb(255, 255, 255);
+$on-surface: rgb(0, 0, 0);

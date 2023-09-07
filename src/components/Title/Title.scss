@@ -1,0 +1,27 @@
+@import "../../assets/global-styles/global-styles";
+
+#title {
+    padding: 1rem;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+
+    span:nth-child(1) {
+        background: $gradient-title;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    span:nth-child(2) {
+        -webkit-text-stroke: 2px $title-border;
+        color: $background;
+    }
+
+    span:nth-child(3) {
+        background: $gradient-title-reverse;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+}
