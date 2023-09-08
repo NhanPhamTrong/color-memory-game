@@ -10,10 +10,10 @@ $gradient-title: linear-gradient(to right, rgb(88, 0, 255), rgb(0, 150, 255), rg
 $gradient-title-reverse: linear-gradient(to right, rgb(0, 215, 255), rgb(0, 150, 255), rgb(88, 0, 255));
 $title-border: rgb(0, 215, 255);
 
-$primary: rgb(34, 47, 185);
+$primary: linear-gradient(to right, rgb(88, 0, 255), rgb(0, 150, 255), rgb(0, 215, 255), rgb(0, 150, 255), rgb(88, 0, 255));
 $on-primary: rgb(255, 255, 255);
 
-$background: rgb(230, 230, 230);
+$background: rgb(240, 240, 240);
 $on-background: rgb(0, 0, 0);
 
 $surface: rgb(255, 255, 255);

@@ -1,9 +1,14 @@
 import "./Card.scss"
 
-export const Card = () => {
+export const Card = ({colorList}) => {
     return (
-        <div className="card">
-            <h1>Card</h1>
-        </div>
+        <ul id="card">
+            {colorList.map((color, index) => (
+                <li key={index}>
+                    <div className="color" style={{"--color": color.code}}></div>
+                    <div className="color-name" style={{"--color": color.code}}>{color.name}</div>
+                </li>
+            ))}
+        </ul>
     )
 }
