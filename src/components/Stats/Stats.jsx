@@ -1,12 +1,16 @@
+import { useDispatch, useSelector } from "react-redux"
 import "./Stats.scss"
 
-export const Stats = ({level, score, highestScore}) => {
+export const Stats = () => {
+    const dispatch = useDispatch()
+    const stats = useSelector(state => state.stats)
+    
     return (
         <div id="stats">
-            <h1>Level: {level}</h1>
+            <h1>Level: {stats.level}</h1>
             <div className="score">
-                <p>Score: {score}</p>
-                <p>Highest score: {highestScore}</p>
+                <p>Score: {stats.score}</p>
+                <p>Highest score: {stats.highestScore}</p>
             </div>
         </div>
     )
