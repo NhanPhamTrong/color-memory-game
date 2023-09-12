@@ -1,7 +1,7 @@
 import { useState } from "react"
-import "./Card.scss"
+import "./CardsList.scss"
 
-export const Card = ({cards, ChooseColor}) => {
+export const CardsList = ({cardsList, ChooseColor}) => {
     // const [cardsList, setCardsList] = useState(cards.list)
 
     const AddSpace = (text) => {
@@ -17,7 +17,7 @@ export const Card = ({cards, ChooseColor}) => {
 
     return (
         <ul id="card">
-            {cards.list.map((card, index) => (
+            {cardsList.map((card, index) => (
                 <li key={index} name={card.name} onClick={ChooseColor}>
                     <div className="color" style={{"--color": ("#" + card.hex)}}></div>
                     <div className="color-name">{AddSpace(card.name)}</div>

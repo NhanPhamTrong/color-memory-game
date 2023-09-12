@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import "./GameOverModal.scss"
-import { modalActions } from "../../store/ModalSlice"
-import { statsActions } from "../../store/StatsSlice"
+import { modalActions } from "../../redux/ModalSlice"
+import { statsActions } from "../../redux/slice/StatsSlice"
 
 export const GameOverModal = ({stats, modal}) => {
     const dispatch = useDispatch()

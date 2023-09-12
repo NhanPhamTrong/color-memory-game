@@ -5,7 +5,7 @@ export const fetchColors = createAsyncThunk("fetchColors", async () => {
     return response.json()
 })
 
-const CardsSlice = createSlice({
+const CardsListSlice = createSlice({
     name: "cards",
     initialState: {
         list: []
@@ -17,4 +17,4 @@ const CardsSlice = createSlice({
     }
 })
 
-export { CardsSlice }
+export { CardsListSlice }
