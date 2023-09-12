@@ -1,9 +1,6 @@
-import { useState } from "react"
 import "./CardsList.scss"
 
-export const CardsList = ({cardsList, ChooseColor}) => {
-    // const [cardsList, setCardsList] = useState(cards.list)
-
+export const CardsList = ({cardsList, ChooseCard}) => {
     const AddSpace = (text) => {
 		// READ ONLY CONTENT
         let name = text.split("")
@@ -16,9 +13,9 @@ export const CardsList = ({cardsList, ChooseColor}) => {
     }
 
     return (
-        <ul id="card">
-            {cardsList.map((card, index) => (
-                <li key={index} name={card.name} onClick={ChooseColor}>
+        <ul id="card-list" className={cardsList.isActive ? "active" : ""}>
+            {cardsList.list && cardsList.list.map((card, index) => (
+                <li key={index} name={card.name} onClick={ChooseCard}>
                     <div className="color" style={{"--color": ("#" + card.hex)}}></div>
                     <div className="color-name">{AddSpace(card.name)}</div>
                 </li>

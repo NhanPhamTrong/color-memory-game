@@ -5,23 +5,23 @@ const StatsSlice = createSlice({
     initialState: {
         level: 1,
         score: 0,
-        highestScore: 0
+        highestScore: 0,
+        isLose: false
     },
     reducers: {
         AddLevel(state) {
             state.level ++
         },
-        ResetLevel(state) {
-            state.level = 0
-        },
         AddScore(state) {
             state.score ++
         },
-        ResetScore(state) {
-            state.score = 0
+        SetResult(state) {
+            state.isLose = true
+            state.highestScore = state.highestScore < state.score ? state.score : state.highestScore
         },
-        SetHighestScore(state) {
-            state.highestScore = 100
+        Reset(state) {
+            state.level = 0
+            state.score = 0
         }
     }
 })

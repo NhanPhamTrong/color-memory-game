@@ -8,8 +8,7 @@ export const GameOverModal = ({stats, modal}) => {
 
     const TryAgain = () => {
         dispatch(modalActions.CloseModal())
-        dispatch(statsActions.ResetLevel())
-        dispatch(statsActions.ResetScore())
+        dispatch(statsActions.Reset())
     }
 
     return (
