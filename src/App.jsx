@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react"
 import { Title } from "./components/Title/Title"
 import { Stats } from "./components/Stats/Stats"
+import { StartButton } from './components/StartButton/StartButton'
 import { Card } from "./components/Card/Card"
 import { GameOverModal } from "./components/GameOverModal/GameOverModal"
 import { statsActions } from "./store/StatsSlice"
@@ -26,6 +27,7 @@ export const App = () => {
             <header>
                 <Title />
                 <Stats stats={stats} />
+                <StartButton />
             </header>
             <main>
                 <Card cards={cards} stats={stats} ChooseColor={ChooseColor} />
