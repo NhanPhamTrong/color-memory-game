@@ -1,17 +1,28 @@
+import { useDispatch } from "react-redux"
 import "./GameOverModal.scss"
+import { modalActions } from "../../store/ModalSlice"
+import { statsActions } from "../../store/StatsSlice"
 
-export const GameOverModal = ({score, highestScore}) => {
+export const GameOverModal = ({stats, modal}) => {
+    const dispatch = useDispatch()
+
+    const TryAgain = () => {
+        dispatch(modalActions.CloseModal())
+        dispatch(statsActions.ResetLevel())
+        dispatch(statsActions.ResetScore())
+    }
+
     return (
-        <div id="game-over-modal">
+        <div id="game-over-modal" className={modal.isActive ? "active" : "false"}>
             <div className="modal-background"></div>
             <div className="modal-content">
                 <h1>You lost ...</h1>
                 <div className="score">
-                    <p>Score: {score}</p>
-                    <p>Highest score: {highestScore}</p>
+                    <p>Score: {stats.score}</p>
+                    <p>Highest score: {stats.highestScore}</p>
                 </div>
-                <p className="modal-text">You clicked the same color twice.</p>
-                <button type="button">Try again</button>
+                <p className="modal-text">{modal.content}</p>
+                <button type="button" onClick={TryAgain}>Try again</button>
             </div>
         </div>
     )

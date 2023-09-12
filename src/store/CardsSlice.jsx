@@ -1,38 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { apiCallBegan } from "./API"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+
+export const fetchColors = createAsyncThunk("fetchColors", async () => {
+    const response = await fetch("https://www.csscolorsapi.com/api/colors")
+    return response.json()
+})
 
 const CardsSlice = createSlice({
     name: "cards",
     initialState: {
-        cards: [],
-        loading: false,
+        list: []
     },
-    reducers: {
-        cardsRequested: (cards) => {
-            cards.loading = true
-        },
-
-        cardsReceived: (cards, action) => {
-            cards.cards = action.payload
-            cards.loading = false
-        },
-
-        cardsRequestFailed: (cards) => {
-            cards.loading = false
-        },
-    },
+    extraReducers: builder => {
+        builder.addCase(fetchColors.fulfilled, (state, action) => {
+            state.list = action.payload.colors
+        })
+    }
 })
 
-export default CardsSlice.reducer
-
-const { cardsRequested, cardsReceived, cardsRequestFailed } = CardsSlice.actions
-
-export const loadCards = () => (dispatch) => {
-    return dispatch(
-        apiCallBegan({
-            onStart: cardsRequested.type,
-            onSuccess: cardsReceived.type,
-            onError: cardsRequestFailed.type,
-        })
-    )
-}
+export { CardsSlice }

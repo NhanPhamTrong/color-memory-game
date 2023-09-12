@@ -3,6 +3,8 @@
 #game-over-modal {
     height: 100vh;
     width: 100%;
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -74,4 +76,9 @@
             animation: tryAgainButtonAnimation 6s linear infinite;
         }
     }
+}
+
+#game-over-modal.active {
+    opacity: 1;
+    pointer-events: all;
 }

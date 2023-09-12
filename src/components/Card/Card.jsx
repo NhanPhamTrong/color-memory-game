@@ -1,18 +1,10 @@
+import { useState } from "react"
 import "./Card.scss"
-import { useDispatch, useSelector } from "react-redux"
-import { statsActions } from "../../store/StatsSlice"
-import { useEffect } from "react"
-import { loadCards } from "../../store/CardsSlice"
 
-export const Card = () => {
-    const dispatch = useDispatch()
-    const cards = useSelector(state => {
-        console.log(state)
-        return state.cards})
+export const Card = ({cards, ChooseColor}) => {
+    // const [cardsList, setCardsList] = useState(cards.list)
 
-    useEffect(() => {
-        dispatch(loadCards())
-    }, [dispatch])
+    console.log(cards)
 
     const AddSpace = (text) => {
 		// READ ONLY CONTENT
@@ -25,16 +17,12 @@ export const Card = () => {
         return name.join("")
     }
 
-    const ChooseColor = (e) => {
-        dispatch(statsActions.AddScore())
-    }
-
     return (
         <ul id="card">
-            {cards.map((card, index) => (
+            {cards.list.map((card, index) => (
                 <li key={index} name={card.name} onClick={ChooseColor}>
                     <div className="color" style={{"--color": ("#" + card.hex)}}></div>
-                    <div className="color-name" style={{"--color": ("#" + card.hex)}}>{AddSpace(card.name)}</div>
+                    <div className="color-name">{AddSpace(card.name)}</div>
                 </li>
             ))}
         </ul>
