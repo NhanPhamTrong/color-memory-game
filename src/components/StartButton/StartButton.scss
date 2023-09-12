@@ -1,7 +1,24 @@
 @import "../../assets/global-styles/global-styles";
 
 #start-btn {
-    padding: 1rem 2rem;
-    background: aquamarine;
-    border-radius: 0.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+
+    button {
+        padding: 0.75rem 4rem;
+        background: $on-secondary;
+        border: 2px solid $secondary;
+        border-radius: 0.5rem;
+        color: $secondary;
+        font-size: 1.5rem;
+        font-weight: 800;
+        transition: 0.4s;
+    }
+
+    button:hover {
+        background: $secondary;
+        border: 2px solid $on-secondary;
+        color: $on-secondary;
+    }
 }
