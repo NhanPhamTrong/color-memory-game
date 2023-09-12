@@ -21,13 +21,13 @@ export const App = () => {
         dispatch(fetchColors())
     }, [dispatch])
 
-    // useEffect(() => {
-    //     dispatch()
-    // }, [dispatch])
-
     const StartGame = () => {
         dispatch(startButtonActions.StartGame())
         dispatch(cardsListActions.OpenCardsList())
+        dispatch(cardsListActions.GetSmallCardsList({
+            level: stats.level,
+            list: cardsList.list
+        }))
     }
 
     const ChooseCard = (e) => {
@@ -47,6 +47,16 @@ export const App = () => {
                 return card
             }
         })
+
+        if (newList.filter(card => card.isInLevel) === newList.filter(card => card.isChosen)) {
+            console.log(1)
+            dispatch(statsActions.AddLevel())
+            dispatch(cardsListActions.GetSmallCardsList({
+                level: stats.level,
+                list: cardsList.list
+            }))
+        }
+
         dispatch(cardsListActions.ChooseCard(newList))
     }
 
@@ -56,6 +66,7 @@ export const App = () => {
                 <Title />
                 <Stats stats={stats} />
                 <StartButton startButton={startButton} StartGame={StartGame} />
+                {/* <button type="button" style={{height: 20, width: 20, background: "red"}} onClick={GetRandom}></button> */}
             </header>
             <main>
                 <CardsList cardsList={cardsList} stats={stats} ChooseCard={ChooseCard} />

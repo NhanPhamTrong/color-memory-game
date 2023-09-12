@@ -17,6 +17,16 @@ const CardsListSlice = createSlice({
         })
     },
     reducers: {
+        GetSmallCardsList(state, action) {
+            let newList = action.payload.list
+            for (let i = 0; i < action.payload.level + 3; i++) {
+                let rand = Math.floor(Math.random() * 147)
+                let chosenId = newList.filter(card => !card.isInLevel).length > 0 ? newList.filter(card => !card.isInLevel)[rand].id : rand
+                newList = newList.map(card => card.id === chosenId ? {...card, isInLevel: true} : card)
+            }
+            state.list = newList
+            console.log(newList)
+        },
         ChooseCard(state, action) {
             state.list = action.payload
         },

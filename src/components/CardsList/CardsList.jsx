@@ -13,8 +13,8 @@ export const CardsList = ({cardsList, ChooseCard}) => {
     }
 
     return (
-        <ul id="card-list" className={cardsList.isActive ? "active" : ""}>
-            {cardsList.list && cardsList.list.map((card, index) => (
+        <ul id="card-list" className={cardsList.isActive ? "active" : "active"}>
+            {cardsList.list && cardsList.list.filter(card => card.isInLevel).map((card, index) => (
                 <li key={index} name={card.name} onClick={ChooseCard}>
                     <div className="color" style={{"--color": ("#" + card.hex)}}></div>
                     <div className="color-name">{AddSpace(card.name)}</div>
