@@ -4,8 +4,6 @@ import "./Card.scss"
 export const Card = ({cards, ChooseColor}) => {
     // const [cardsList, setCardsList] = useState(cards.list)
 
-    console.log(cards)
-
     const AddSpace = (text) => {
 		// READ ONLY CONTENT
         let name = text.split("")
