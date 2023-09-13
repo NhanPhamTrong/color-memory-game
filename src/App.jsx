@@ -50,8 +50,9 @@ export const App = () => {
 
         if (newList.filter(card => card.isInLevel).length === newList.filter(card => card.isChosen).length) {
             dispatch(statsActions.AddLevel())
+            console.log(stats.level)
             dispatch(cardsListActions.GetSmallCardsList({
-                level: stats.level,
+                level: stats.level + 1,
                 list: cardsList.list
             }))
         }
