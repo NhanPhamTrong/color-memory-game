@@ -48,16 +48,22 @@ export const App = () => {
             }
         })
 
-        if (newList.filter(card => card.isInLevel) === newList.filter(card => card.isChosen)) {
-            console.log(1)
+        if (newList.filter(card => card.isInLevel).length === newList.filter(card => card.isChosen).length) {
             dispatch(statsActions.AddLevel())
             dispatch(cardsListActions.GetSmallCardsList({
                 level: stats.level,
                 list: cardsList.list
             }))
         }
+        else {
+            dispatch(cardsListActions.ChooseCard(newList))
+        }
+    }
 
-        dispatch(cardsListActions.ChooseCard(newList))
+    const TryAgain = () => {
+        dispatch(modalActions.CloseModal())
+        dispatch(statsActions.Reset())
+        dispatch(cardsListActions.ResetCardsList(cardsList.list))
     }
 
     return (
@@ -66,12 +72,11 @@ export const App = () => {
                 <Title />
                 <Stats stats={stats} />
                 <StartButton startButton={startButton} StartGame={StartGame} />
-                {/* <button type="button" style={{height: 20, width: 20, background: "red"}} onClick={GetRandom}></button> */}
             </header>
             <main>
                 <CardsList cardsList={cardsList} stats={stats} ChooseCard={ChooseCard} />
             </main>
-            <GameOverModal stats={stats} modal={modal} />
+            <GameOverModal stats={stats} modal={modal} TryAgain={TryAgain} />
         </>
     )
 }

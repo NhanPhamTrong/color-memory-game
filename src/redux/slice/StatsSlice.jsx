@@ -20,7 +20,7 @@ const StatsSlice = createSlice({
             state.highestScore = state.highestScore < state.score ? state.score : state.highestScore
         },
         Reset(state) {
-            state.level = 0
+            state.level = 1
             state.score = 0
         }
     }
